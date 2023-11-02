@@ -6,13 +6,13 @@
     margin-left: 10px;
     cursor: pointer;
     visibility: hidden;
-    z-index: 3;
-    & :hover {
-        visibility: visible;
-        cursor: pointer;
-    }
 }
-
 .box-class:hover > .checkbox-class {
+    visibility: visible;
+}
+.box-class:has(> .checkbox-class:checked) {
+    opacity: 0.5;
+}
+.checkbox-class:checked {
     visibility: visible;
 }

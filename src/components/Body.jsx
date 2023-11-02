@@ -4,6 +4,9 @@ import styled from 'styled-components'
 import { mobile, tablet } from '../responsive'
 import { data } from '../data.js'
 import './body.css'
+import { useState } from 'react';
+import { AddPhotoAlternateOutlined } from '@mui/icons-material'
+
 // import img from '../images/image-1.webp'
 
 const Container = styled.div`
@@ -30,6 +33,13 @@ const FeatureBox = styled.div`
   height: 25.2rem;
   position: relative;
 `;
+const Image = styled.img`
+  height: 100%;
+  width: 100%;
+  border-radius: 5px;
+  position: absolute;
+  transition: all 0.5s ease;
+`;
 const Box = styled.div`
   height: 100%;
   width: 100%;
@@ -39,65 +49,95 @@ const Box = styled.div`
   transition: all 0.5s ease;
   position: absolute;
   background-color: white;
-  z-index: 1;
   &: hover {
     border: 2px solid darkgrey;
     transform: scale(1.05);
     background-color: rgba(0,0,0,0.4);
-    z-index: 3;
-  };
+  }
+  &: hover ${Image} {
+    opacity: .5;
+  }
 `;
 //background-color: rgba(0,0,0,0.4);
 //opacity: .6;
-const Image = styled.img`
-  height: 100%;
-  width: 100%;
-  border-radius: 5px;
-  position: absolute;
-  transition: all 0.5s ease;
-  z-index: -1;
-  &: hover {
-    opacity: 0.4;
-  }
-`;
+
 const AddImgBox = styled.div`
   height: 100%;
   width: 100%;
   border: 2px dashed darkgrey;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  cursor: pointer;
+`;
+
+const Icon = styled.div`
+  margin-bottom: 20px;
+
 `;
 
 const Body = () => {
   // const dataArray = data.map((item) => {
   //   return item
   // })
-  function handleChange() {
+  const [imgArr, setImgArr] = useState(data)
+  
+  const [deleteImg, setDeleteImg] = useState([])
 
+  function handleChange(event) {
+    const {name, checked} = event.target
+    setImgArr(prevData => {
+      return {
+        ...prevData,
+        [name]:checked
+      }
+    })
+  }
+  function handleDelete() {
+  //   function isFiltered(v){
+  //     return v === true
+  //   }
+  //   setImgArr(()=>{
+  //     return imgArr.filter(data => isFiltered(data.isSelected))
+  //   });
+    // const deleteArr = imgArr.map(item => {
+    //   if(!item.isSelected)
+        
+    //   return item.isSelected && item
+    // })
+    // console.log("Del"+ deleteArr)
+    // setImgArr(deleteArr)
   }
   return (
     <Container>
-      <Navbar nums = {false}/>
+      <Navbar nums = {false}
+              handleClick={handleDelete}/>
       <GridWrapper>
-        {data.map((item) => {
-          return (item === data[0]) ?
+        {imgArr.map((item) => {
+         return (item === imgArr[0]) ?
           <FeatureBox key={item.id}>
             <Box className="box-class">
               <Image src={item.url}/>
-              <input className="checkbox-class" 
-                    type="checkbox"
-                    name="isSelected"
-                    checked={item.isSelected}
-                    onChange={handleChange}></input>
-            </Box>
+              <input className="checkbox-class" type="checkbox" name="isSelected"
+                    // checked={item.isSelected}
+                    // onChange={handleChange}
+              /></Box>
           </FeatureBox>
           : <Wrapper key={item.id}>
             <Box className="box-class">
               <Image src = {item.url}/>
-              <input className="checkbox-class" type="checkbox"></input>
-            </Box>
+              <input className="checkbox-class" type="checkbox" name="isSelected"
+                    // checked={item.isSelected}
+                    // onChange={handleChange}
+              /></Box>
           </Wrapper>
         })}
         <Wrapper>
-          <AddImgBox>Add Image</AddImgBox>
+          <AddImgBox>
+            <Icon><AddPhotoAlternateOutlined/> </Icon>
+            <div>Add Images</div>
+          </AddImgBox>
         </Wrapper>
       </GridWrapper>
     </Container>
