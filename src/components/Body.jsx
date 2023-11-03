@@ -6,8 +6,7 @@ import { data } from '../data.js'
 import './body.css'
 import { useState } from 'react';
 import { AddPhotoAlternateOutlined } from '@mui/icons-material'
-
-// import img from '../images/image-1.webp'
+import SingleImage from './SingleImage.jsx'
 
 const Container = styled.div`
   ${mobile({ padding: 0 })};
@@ -34,33 +33,6 @@ const FeatureBox = styled.div`
   height: 25.2rem;
   position: relative;
 `;
-const Image = styled.img`
-  height: 100%;
-  width: 100%;
-  border-radius: 5px;
-  position: absolute;
-  transition: all 0.5s ease;
-`;
-const Box = styled.div`
-  height: 100%;
-  width: 100%;
-  border: 2px solid white;
-  border-radius: 7px;
-  box-shadow: 0px 2px 8px 0px #B9B4C7;
-  transition: all 0.5s ease;
-  position: absolute;
-  &: hover {
-    border: 2px solid darkgrey;
-    transform: scale(1.05);
-    background-color: rgba(0,0,0,.6);
-  }
-  &: hover ${Image} {
-    opacity: .5;
-  }
-`;
-//background-color: rgba(0,0,0,0.4);
-//opacity: .6;
-
 const AddImgBox = styled.div`
   height: 100%;
   width: 100%;
@@ -71,66 +43,50 @@ const AddImgBox = styled.div`
   flex-direction: column;
   cursor: pointer;
 `;
-
 const Icon = styled.div`
   margin-bottom: 20px;
 
 `;
 
 const Body = () => {
-  // const dataArray = data.map((item) => {
-  //   return item
-  // })
   const [imgArr, setImgArr] = useState(data)
-  
   const [deleteImg, setDeleteImg] = useState([])
 
-  function handleChange(event) {
+  function editImgArr(event) {
     const {name, checked} = event.target
-    setImgArr(prevData => {
-      return {
-        ...prevData,
-        [name]:checked
-      }
-    })
-  }
+    console.log(name, checked)
+    setImgArr(imgArr.map(item => {
+      if(item.id == name) {
+        return {
+          ...item,
+          selected:checked
+        }}
+        else {
+          return item;
+        }
+      })
+    )}
+
   function handleDelete() {
-  //   function isFiltered(v){
-  //     return v === true
-  //   }
-  //   setImgArr(()=>{
-  //     return imgArr.filter(data => isFiltered(data.isSelected))
-  //   });
-    // const deleteArr = imgArr.map(item => {
-    //   if(!item.isSelected)
-        
-    //   return item.isSelected && item
-    // })
-    // console.log("Del"+ deleteArr)
-    // setImgArr(deleteArr)
+    setImgArr(imgArr.filter(item => !item.selected));
   }
+  
   return (
     <Container>
-      <Navbar nums = {false}
-              handleClick={handleDelete}/>
+      <Navbar nums = {false} handleClick={handleDelete}/>
+
       <GridWrapper>
         {imgArr.map((item) => {
          return (item === imgArr[0]) ?
           <FeatureBox key={item.id}>
-            <Box className="box-class">
-              <Image src={item.url}/>
-              <input className="checkbox-class" type="checkbox" name="isSelected" checked={item.selected} 
-              onChange={handleChange}
-              />
-            </Box>
+            <SingleImage currentid={item.id} url={item.url} 
+                        toCheck={item.selected} handleChange={editImgArr}/>
+            {console.log(item)}
           </FeatureBox>
           : <Wrapper key={item.id}>
-            <Box className="box-class">
-              <Image src = {item.url}/>
-              <input className="checkbox-class" type="checkbox" name="isSelected"
-                    checked={item.selected}
-                    // onChange={handleChange}
-              /></Box>
+            <SingleImage currentid={item.id} url={item.url} 
+                        toCheck={item.selected} handleChange={editImgArr}/>
+            {console.log(item)}
           </Wrapper>
         })}
         <Wrapper>
@@ -145,36 +101,3 @@ const Body = () => {
 }
 
 export default Body
-
-
-
-{/* <FeatureBox>
-          <Box><Image src={data[0].url}/></Box>
-        </FeatureBox>
-        <Wrapper>
-          <Box><Image src = {data[1].url}/></Box>
-        </Wrapper>
-        <Wrapper>
-          <Box><Image src = {data[1].url}/></Box>
-        </Wrapper>
-        <Wrapper>
-          <Box><Image src = {data[1].url}/></Box>
-        </Wrapper>
-        <Wrapper>
-          <Box><Image src = {data[1].url}/></Box>
-        </Wrapper>
-        <Wrapper>
-          <Box><Image src = {data[1].url}/></Box>
-        </Wrapper>
-        <Wrapper>
-          <Box><Image src = {data[1].url}/></Box>
-        </Wrapper>
-        <Wrapper>
-          <Box><Image src = {data[1].url}/></Box>
-        </Wrapper>
-        <Wrapper>
-          <Box><Image src = {data[1].url}/></Box>
-        </Wrapper>
-        <Wrapper>
-          <Box><Image src = {data[1].url}/></Box>
-        </Wrapper> */}

@@ -11,7 +11,6 @@ const Container = styled.div`
     box-shadow: 0px 2px 8px 0px #8EACCD;
     ${mobile({ padding: 0 })};
 `;
-//#fff5e0
 const Wrapper = styled.div`
     padding: 20px 70px;
     display: flex;
