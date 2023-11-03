@@ -25,6 +25,7 @@ const GridWrapper = styled.div`
 const Wrapper = styled.div`
   height: 12rem;
   position: relative;
+  background-color: white;
 `;
 const FeatureBox = styled.div`
   grid-column: 1 / 3;
@@ -48,11 +49,10 @@ const Box = styled.div`
   box-shadow: 0px 2px 8px 0px #B9B4C7;
   transition: all 0.5s ease;
   position: absolute;
-  background-color: white;
   &: hover {
     border: 2px solid darkgrey;
     transform: scale(1.05);
-    background-color: rgba(0,0,0,0.4);
+    background-color: rgba(0,0,0,.6);
   }
   &: hover ${Image} {
     opacity: .5;
@@ -119,16 +119,16 @@ const Body = () => {
           <FeatureBox key={item.id}>
             <Box className="box-class">
               <Image src={item.url}/>
-              <input className="checkbox-class" type="checkbox" name="isSelected"
-                    // checked={item.isSelected}
-                    // onChange={handleChange}
-              /></Box>
+              <input className="checkbox-class" type="checkbox" name="isSelected" checked={item.selected} 
+              onChange={handleChange}
+              />
+            </Box>
           </FeatureBox>
           : <Wrapper key={item.id}>
             <Box className="box-class">
               <Image src = {item.url}/>
               <input className="checkbox-class" type="checkbox" name="isSelected"
-                    // checked={item.isSelected}
+                    checked={item.selected}
                     // onChange={handleChange}
               /></Box>
           </Wrapper>

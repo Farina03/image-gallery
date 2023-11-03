@@ -12,7 +12,11 @@
 }
 .box-class:has(> .checkbox-class:checked) {
     opacity: 0.5;
+    background-color: white;
 }
 .checkbox-class:checked {
     visibility: visible;
+}
+.box-class:hover:has(> .checkbox-class:checked) {
+    background-color: white;
 }
