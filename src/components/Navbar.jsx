@@ -38,17 +38,17 @@ const Right = styled.div`
 `;
 
 const Navbar = (props) => {
-  const arrSize = props.nums ? 3 : 0;
+  const arrSize = props.nums
   return (
     <Container>
       {arrSize ?
       <Wrapper>
+      <Left>{`${arrSize} items chosen`}</Left>
+      <Right onClick={props.handleClick}>Delete</Right>
+    </Wrapper>
+      : <Wrapper>
         <Title>Gallery</Title>
-      </Wrapper> :
-      <Wrapper>
-        <Left>{`${arrSize} items chosen`}</Left>
-        <Right onClick={props.handleClick}>Delete</Right>
-      </Wrapper>}
+      </Wrapper> }
     </Container>
   )
 }

@@ -32,7 +32,7 @@ const SingleImage = (props) => {
       <Box className="box-class" >
       <Image src={props.url}/>
       <input className="checkbox-class" type="checkbox" name={props.currentid} checked={props.toCheck} 
-      onChange={props.handleChange}/>
+      onChange={props.handleChange} />
     </Box>
   )
 }

@@ -45,16 +45,14 @@ const AddImgBox = styled.div`
 `;
 const Icon = styled.div`
   margin-bottom: 20px;
-
 `;
 
 const Body = () => {
   const [imgArr, setImgArr] = useState(data)
-  const [deleteImg, setDeleteImg] = useState([])
+  let cnt = 0;
 
-  function editImgArr(event) {
+  async function editImgArr(event) {
     const {name, checked} = event.target
-    console.log(name, checked)
     setImgArr(imgArr.map(item => {
       if(item.id == name) {
         return {
@@ -65,16 +63,19 @@ const Body = () => {
           return item;
         }
       })
-    )}
-
+    )
+  }
   function handleDelete() {
     setImgArr(imgArr.filter(item => !item.selected));
   }
   
   return (
     <Container>
-      <Navbar nums = {false} handleClick={handleDelete}/>
-
+      {imgArr.map(item => {
+        item.selected && cnt++
+      })}
+      <Navbar nums = {cnt} handleClick={handleDelete}/>
+      {console.log(cnt)}
       <GridWrapper>
         {imgArr.map((item) => {
          return (item === imgArr[0]) ?
