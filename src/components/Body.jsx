@@ -50,7 +50,9 @@ const Icon = styled.div`
 const Body = () => {
   const [imgArr, setImgArr] = useState(data)
   let cnt = 0;
-
+  imgArr.map(item => {
+    item.selected && cnt++
+  })
   async function editImgArr(event) {
     const {name, checked} = event.target
     setImgArr(imgArr.map(item => {
@@ -71,9 +73,9 @@ const Body = () => {
   
   return (
     <Container>
-      {imgArr.map(item => {
+      {/* {imgArr.map(item => {
         item.selected && cnt++
-      })}
+      })} */}
       <Navbar nums = {cnt} handleClick={handleDelete}/>
       {console.log(cnt)}
       <GridWrapper>

@@ -7,6 +7,7 @@ const Container = styled.div`
     height: 75px;
     margin: 0;
     color: white;
+    letter-spacing: -0.8px;
     background: linear-gradient(90deg, #7c81ad 1.18%, #8eaccd 100%);
     box-shadow: 0px 2px 8px 0px #8EACCD;
     ${mobile({ padding: 0 })};
@@ -21,6 +22,7 @@ const Wrapper = styled.div`
 `;
 const Title = styled.span`
     font-size: 30px;
+    font-family: 'Charm', cursive;
 `;
 const Left = styled.div`
     font-size: 20px;
@@ -29,7 +31,7 @@ const Left = styled.div`
 const Right = styled.div`
     cursor: pointer;
     font-size: 20px;
-    transition: all 0.5s ease;
+    transition: all 0.2s ease;
 
     &: hover {
         transform: scale(1.1);
@@ -43,11 +45,12 @@ const Navbar = (props) => {
     <Container>
       {arrSize ?
       <Wrapper>
-      <Left>{`${arrSize} items chosen`}</Left>
-      <Right onClick={props.handleClick}>Delete</Right>
-    </Wrapper>
+        {arrSize === 1 ? <Left>{`${arrSize} item selected`}</Left> :
+        <Left>{`${arrSize} items selected`}</Left>}
+        <Right onClick={props.handleClick}>Delete</Right>
+      </Wrapper>
       : <Wrapper>
-        <Title>Gallery</Title>
+        <Title>Galleria</Title>
       </Wrapper> }
     </Container>
   )
