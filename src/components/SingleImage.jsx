@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import './body.css'
+import SortableItem from 'react-easy-sort';
 
 const Image = styled.img`
   height: 100%;
@@ -29,11 +30,15 @@ const Box = styled.div`
 
 const SingleImage = (props) => {
   return (
+    // <Box className="box-class" >
+      <SortableItem>
       <Box className="box-class" >
       <Image src={props.url}/>
       <input className="checkbox-class" type="checkbox" name={props.currentid} checked={props.toCheck} 
       onChange={props.handleChange} />
-    </Box>
+      </Box>
+      </SortableItem>
+    // </Box>
   )
 }
 
