@@ -8,7 +8,7 @@ const Container = styled.div`
     margin: 0;
     color: white;
     letter-spacing: -0.8px;
-    background: linear-gradient(90deg, #7c81ad 1.18%, #8eaccd 100%);
+    background: linear-gradient(90deg, #4F3B78 1.18%, #927FBF 100%);
     box-shadow: 0px 2px 8px 0px #8EACCD;
     ${mobile({ padding: "0px 30px" })};
 `;
@@ -21,21 +21,27 @@ const Wrapper = styled.div`
     ${tablet({ padding: "20px 30px" })};
 `;
 const Title = styled.span`
-    font-size: 30px;
+    font-size: 32px;
     font-family: 'Charm', cursive;
 `;
 const Left = styled.div`
-    font-size: 20px;
+    font-size: 22px;
     margin-right: auto;
 `;
 const Right = styled.div`
     cursor: pointer;
     font-size: 20px;
     transition: all 0.2s ease;
-
+    background-color: #E64848;
+    height: 40px;
+    width: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
     &: hover {
-        transform: scale(1.1);
-        color: #E64848;
+        transform: scale(1.05);
+        background-color: #D72323;
     }
 `;
 
