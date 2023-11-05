@@ -1,0 +1,33 @@
+.list {
+    display: grid;
+    gap: 1.2rem;
+    grid-template-columns: repeat(auto-fit, 12rem);
+    justify-content: center;
+    user-select: none;
+    padding: 20px 70px;
+    justify-content: center;
+}
+.checkbox-class {
+    position: absolute;
+    height: 15px;
+    width: 15px;
+    margin-top: 10px;
+    margin-left: 10px;
+    cursor: pointer;
+    z-index: 3;
+    visibility: hidden;
+}
+.addimagebox {
+  height: 100%;
+  width: 100%;
+  border: 2px dashed darkgrey;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  cursor: pointer;
+  background-color: white;
+}
+.icon {
+  margin-bottom: 20px;
+}

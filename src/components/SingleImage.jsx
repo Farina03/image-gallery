@@ -1,44 +1,31 @@
 import React from 'react'
-import styled from 'styled-components'
-import './body.css'
-import SortableItem from 'react-easy-sort';
-
-const Image = styled.img`
-  height: 100%;
-  width: 100%;
-  border-radius: 5px;
-  position: absolute;
-  transition: all 0.5s ease;
-`;
-const Box = styled.div`
-  height: 100%;
-  width: 100%;
-  border: 2px solid white;
-  border-radius: 7px;
-  box-shadow: 0px 2px 8px 0px #B9B4C7;
-  transition: all 0.5s ease;
-  position: absolute;
-  &: hover {
-    border: 2px solid darkgrey;
-    transform: scale(1.05);
-    background-color: rgba(0,0,0,.6);
-  }
-  &: hover ${Image} {
-    opacity: .5;
-  }
-`;
+import './singleimage.css'
+import { useSortable } from '@dnd-kit/sortable'
+import {CSS} from '@dnd-kit/utilities'
 
 const SingleImage = (props) => {
+
+  const {
+    attributes,
+    listeners,
+    setNodeRef,
+    transform,
+    transition
+  } = useSortable({id: props.currentid})
+
+  const style = {
+    transform: CSS.Transform.toString(transform),
+    transition
+  }
+
   return (
-    // <Box className="box-class" >
-      <SortableItem>
-      <Box className="box-class" >
-      <Image src={props.url}/>
-      <input className="checkbox-class" type="checkbox" name={props.currentid} checked={props.toCheck} 
-      onChange={props.handleChange} />
-      </Box>
-      </SortableItem>
-    // </Box>
+    <div ref={setNodeRef} style={style} {...attributes} {...listeners}>
+      <div className="wrapper-inner">
+        <img className="image-class" src={props.url} />
+        <input className="checkbox-class" type="checkbox" name={props.currentid} 
+              checked={props.toCheck} onChange={props.handleChange} />
+      </div>
+    </div>
   )
 }
 

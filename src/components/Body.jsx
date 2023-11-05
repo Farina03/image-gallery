@@ -82,7 +82,7 @@ const Body = () => {
     setImgArr(imgArr.filter(item => !item.selected));
   }
   const onSortEnd = (oldIndex, newIndex) => {
-    setImgArr(imgArr => arrayMoveImmutable(imgArr, oldIndex, newIndex))
+    setImgArr(array => arrayMoveImmutable(array, oldIndex, newIndex))
   }
   
   return (
@@ -93,10 +93,10 @@ const Body = () => {
       <SortableList className="list" onSortEnd={onSortEnd} draggedItemClassName="dragged">
         {imgArr.map((item, index) => {
          return (
-            <SortableItem>
+            <SortableItem key={item.id}>
               {/* <FeatureBox key={item.id}> */}
               
-              <Box key={item.id} className={index === 0 ? "featurebox" : "wrapper"} > 
+              <Box className={index === 0 ? "featurebox" : "wrapper"} > 
               <Image src={item.url}/>
               <input className="checkbox-class" type="checkbox" name={item.id} 
                       checked={item.selected} onChange={editImgArr} />

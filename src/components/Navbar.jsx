@@ -10,15 +10,15 @@ const Container = styled.div`
     letter-spacing: -0.8px;
     background: linear-gradient(90deg, #7c81ad 1.18%, #8eaccd 100%);
     box-shadow: 0px 2px 8px 0px #8EACCD;
-    ${mobile({ padding: 0 })};
+    ${mobile({ padding: "0px 30px" })};
 `;
 const Wrapper = styled.div`
     padding: 20px 70px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    ${mobile({ padding: "20px 20px" })};
-    ${tablet({ padding: "20px 50px" })};
+    ${mobile({ padding: "20px 30px" })};
+    ${tablet({ padding: "20px 30px" })};
 `;
 const Title = styled.span`
     font-size: 30px;

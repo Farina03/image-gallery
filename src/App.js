@@ -1,12 +1,9 @@
 import './App.css';
-import Body from './components/Body.jsx'
+import NewBody from './components/NewBody';
 
 function App() {
   return (
-    // <div className="App">
-    //   <Body/>
-    // </div>
-    <Body />
+    <NewBody />
   );
 }
 
