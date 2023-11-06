@@ -7,7 +7,7 @@ The highlighted features of this application are:
   3. **Count** of total number of selected images.
   4. **Delete** the selected images.
 
-For dragging and dropping, the **dnd-kit library** is used. No external state management libraries is used.
+For dragging and dropping, the **dnd-kit library** is used. No external state management libraries are used.
 
 ### Deployment
 
@@ -17,18 +17,18 @@ The project is deployed in Vercel. Check out the live URL:
 
 ### To run the app in your local environment
 
-Clone the project, open it in VsCode, go to the VsCode terminal, and type:
+Clone the project, open it in VS Code, go to the VS Code terminal, and type:
 
 **`npm install`**
 
-the dependencies will be added. The type in the terminal:
+the dependencies will be added. Then type in the VS Code terminal:
 
 **`npm start`**
 
 This will redirect you to [http://localhost:3000](http://localhost:3000) where you can view and interact with
 the project locally.
 
-# Getting Started with Create React App
+### Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
