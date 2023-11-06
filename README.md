@@ -16,7 +16,7 @@ Check out the live URL for live interaction:
 
 **[https://image-gallery-snowy-eta.vercel.app/](https://image-gallery-snowy-eta.vercel.app/)**
 
-*** Please ensure a good internet connection for seamless user interaction. If it takes a while to load, please wait for a few seconds or refresh. ***
+*Please ensure a good internet connection for seamless user interaction. If it takes a while to load, please wait for a few seconds or refresh.*
 
 ### To run the app in your local environment
 
