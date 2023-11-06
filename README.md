@@ -9,11 +9,14 @@ The highlighted features of this application are:
 
 For dragging and dropping, the **dnd-kit library** is used. No external state management libraries are used.
 
-### Deployment
+### Live URL
 
-The project is deployed in Vercel. Check out the live URL:
+The project is deployed in Vercel. You can browse the app from both PC and mobile.
+Check out the live URL for live interaction:
 
 **[https://image-gallery-snowy-eta.vercel.app/](https://image-gallery-snowy-eta.vercel.app/)**
+
+*** **Please ensure a good internet connection for seamless user interaction. If it takes a while to load, please wait for a few seconds or refresh. ***
 
 ### To run the app in your local environment
 
