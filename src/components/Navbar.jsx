@@ -7,7 +7,8 @@ const Container = styled.div`
     height: 75px;
     margin: 0;
     color: white;
-    letter-spacing: -0.8px;
+    letter-spacing: -.8px;
+    word-spacing: 3px;
     background: linear-gradient(90deg, #4F3B78 1.18%, #927FBF 100%);
     box-shadow: 0px 2px 8px 0px #8EACCD;
     ${mobile({ padding: "0px 30px" })};
@@ -51,8 +52,8 @@ const Navbar = (props) => {
     <Container>
       {arrSize ?
       <Wrapper>
-        {arrSize === 1 ? <Left>{`${arrSize} item selected`}</Left> :
-        <Left>{`${arrSize} items selected`}</Left>}
+        {arrSize === 1 ? <Left>{`Item selected : ${arrSize}`}</Left> :
+        <Left>{`Items selected : ${arrSize}`}</Left>}
         <Right onClick={props.handleClick}>Delete</Right>
       </Wrapper>
       : <Wrapper>
