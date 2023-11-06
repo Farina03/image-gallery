@@ -1,8 +1,38 @@
+### Project Overview
+
+This is a frontend-focused fully responsive project for an Image Gallery Application developed using React.
+The highlighted features of this application are:
+  1. **Drag and drop** images to rearrange in any order.
+  2. **Select/unselect** images with the checkbox.
+  3. **Count** of total number of selected images.
+  4. **Delete** the selected images.
+
+For dragging and dropping, the **dnd-kit library** is used. No external state management libraries is used.
+
+### Deployment
+
+The project is deployed in Vercel. Check out the live URL:
+
+**[https://image-gallery-snowy-eta.vercel.app/](https://image-gallery-snowy-eta.vercel.app/)**
+
+### To run the app in your local environment
+
+Clone the project, open it in VsCode, go to the VsCode terminal, and type:
+
+**`npm install`**
+
+the dependencies will be added. The type in the terminal:
+
+**`npm start`**
+
+This will redirect you to [http://localhost:3000](http://localhost:3000) where you can view and interact with
+the project locally.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+<!--- ## Available Scripts
 
 In the project directory, you can run:
 
@@ -67,4 +97,4 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 
 ### `npm run build` fails to minify
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify) --->
