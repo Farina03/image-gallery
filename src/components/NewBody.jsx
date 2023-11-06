@@ -30,6 +30,12 @@ const NewBody = () => {
         distance: 10,
       },
     }),
+    useSensor(TouchSensor, {
+      activationConstraint :{
+        delay: 500,
+        tolerance: 16,
+      }
+    })
   )
 
   let cnt = 0;
